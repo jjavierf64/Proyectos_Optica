@@ -3,7 +3,16 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 import re
+from minimosCuadrados import minimosCuadrados
 # primero se importan las librerias que se van a necesitar para realizar el codigo.
+
+
+def calculate(data_x,k,b):
+    datay=[]
+    for x in data_x:
+        datay.append(k*x+b)
+    return datay
+
 
 
 def run():
@@ -83,6 +92,19 @@ def run():
     plt.ylabel('Seno del ángulo de refracción en el Agua')
     plt.title('Seno de los ángulos, aplicado el cambio de variable.')
 
+
+    parametros = minimosCuadrados(X,Y)
+
+    recta = calculate(X, parametros[0], parametros[1])
+    plt.plot(
+        X,
+        recta,
+        linestyle='--',
+        color='grey',
+        label='Recta hallada por mínimos cuadrados\ny='+str(round(parametros[0],5))+'*x + ('+str(round(parametros[1],5))+')'
+        )
+
+
     plt.legend(loc=0)
     plt.tight_layout()
     plt.grid()
@@ -133,6 +155,17 @@ def run():
         'Seno del ángulo de incidencia del Aire a la Sustancia Misteriosa A')
     plt.ylabel('Seno del ángulo de refracción en la Sustancia Misteriosa A')
     plt.title('Seno de los ángulos, aplicado el cambio de variable.')
+
+    parametros = minimosCuadrados(X,Y)
+
+    recta = calculate(X, parametros[0], parametros[1])
+    plt.plot(
+        X,
+        recta,
+        linestyle='--',
+        color='grey',
+        label='Recta hallada por mínimos cuadrados\ny='+str(round(parametros[0],5))+'*x + ('+str(round(parametros[1],5))+')'
+        )
 
     plt.legend(loc=0)
     plt.tight_layout()
@@ -186,6 +219,17 @@ def run():
         'Seno del ángulo de incidencia del Vidrio a la Sustancia Misteriosa B')
     plt.ylabel('Seno del ángulo de refracción en la Sustancia Misteriosa B')
     plt.title('Seno de los ángulos, aplicado el cambio de variable.')
+
+    parametros = minimosCuadrados(X,Y)
+
+    recta = calculate(X, parametros[0], parametros[1])
+    plt.plot(
+        X,
+        recta,
+        linestyle='--',
+        color='grey',
+        label='Recta hallada por mínimos cuadrados\ny='+str(round(parametros[0],5))+'*x + ('+str(round(parametros[1],5))+')'
+        )
 
     plt.legend(loc=0)
     plt.tight_layout()
