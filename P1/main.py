@@ -67,11 +67,12 @@ def run():
     Y = []
     for num in aire["Aire"]:
         X.append(math.sin(math.radians(float(num))))
-        print(X)
 
     for num in agua["Agua"]:
         Y.append(math.sin(math.radians(float(num))))
-        print(Y)
+
+    print("Caso A:\n",X,"\n",Y)
+
 
     plt.scatter(X,
                 Y,
@@ -118,12 +119,11 @@ def run():
     Y = []
     for num in aire["Aire"]:
         X.append(math.sin(math.radians(float(num))))
-        print(X)
 
     for num in mA["MysteryA"]:
         Y.append(math.sin(math.radians(float(num))))
-        print(Y)
 
+    print("Caso B:\n",X,"\n",Y)
     plt.scatter(X,
                 Y,
                 color='r',
@@ -138,5 +138,60 @@ def run():
     plt.tight_layout()
     plt.grid()
     plt.show()
+
+
+
+# Caso C
+    # Normal
+    data = pd.read_csv("P1/refraccionC.csv")
+    data.dropna(inplace=True)
+
+    vidrio = pd.DataFrame(data.vidrio)
+    vidrio.columns = ["Vidrio"]
+
+    mB = pd.DataFrame(data.mysteryB)
+    mB.columns = ['MysteryB']
+
+    plt.scatter(vidrio,
+                mB,
+                color='r',
+                label='Dispersión de incidencia y refracción.')
+
+    plt.xlabel('Ángulo de incidencia del Vidrio a la Sustancia Misteriosa B [°]')
+    plt.ylabel('Ángulo de refracción en la Sustancia Misteriosa B [°]')
+    plt.title('Lecturas de ángulos entre Vidrio y Sustancia Misteriosa B.')
+
+    plt.legend(loc=0)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()
+
+    # Cambio de Variable
+
+    X = []
+    Y = []
+    for num in vidrio["Vidrio"]:
+        X.append(math.sin(math.radians(float(num))))
+
+    for num in mB["MysteryB"]:
+        Y.append(math.sin(math.radians(float(num))))
+
+    print("Caso C:\n",X,"\n",Y)
+    plt.scatter(X,
+                Y,
+                color='r',
+                label='Dispersión de incidencia y refracción.')
+
+    plt.xlabel(
+        'Seno del ángulo de incidencia del Vidrio a la Sustancia Misteriosa B')
+    plt.ylabel('Seno del ángulo de refracción en la Sustancia Misteriosa B')
+    plt.title('Seno de los ángulos, aplicado el cambio de variable.')
+
+    plt.legend(loc=0)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()
+
+
 
     return
