@@ -18,7 +18,9 @@ def run():
     anguloRX = pd.DataFrame(data.anguloRX)
     anguloRX.columns = ["ÁnguloRX"]
     plt.style.use('ggplot')
-    plt.scatter(anguloI, anguloRX, color='r',
+    plt.scatter(anguloI,
+                anguloRX,
+                color='r',
                 label='Dispersión de incidencia y reflexión.')
 
     # Adding axis labels
@@ -32,32 +34,109 @@ def run():
     plt.grid()
     plt.show()
 
+    # Refracción
+    # Caso A
 
-# Refracción
-# De nuevo se realiza la lectura del csv usando pandas y limpiamos todos los datos de valores no numéricos con la función de pandas dropna.
+    # Normal
     data = pd.read_csv("P1/refraccionA.csv")
     data.dropna(inplace=True)
 
-# Luego, asignamos los datos de cada columna a una variable.
     aire = pd.DataFrame(data.aire)
     aire.columns = ["Aire"]
 
     agua = pd.DataFrame(data.agua)
     agua.columns = ['Agua']
 
-    plt.style.use('ggplot')
     plt.scatter(aire,
                 agua,
                 color='r',
                 label='Dispersión de incidencia y refracción.')
 
-# Adding axis labels
-    plt.xlabel('Ángulo de incidencia [°]')
-    plt.ylabel('Ángulo de refracción [°]')
-    plt.title('Lecturas de ángulos.')
+    plt.xlabel('Ángulo de incidencia del Aire al Agua [°]')
+    plt.ylabel('Ángulo de refracción en el Agua [°]')
+    plt.title('Lecturas de ángulos entre Aire y Agua.')
 
-# Legend
     plt.legend(loc=0)
     plt.tight_layout()
     plt.grid()
     plt.show()
+
+    # Cambio de Variable
+
+    X = []
+    Y = []
+    for num in aire["Aire"]:
+        X.append(math.sin(math.radians(float(num))))
+        print(X)
+
+    for num in agua["Agua"]:
+        Y.append(math.sin(math.radians(float(num))))
+        print(Y)
+
+    plt.scatter(X,
+                Y,
+                color='r',
+                label='Dispersión de incidencia y refracción.')
+
+    plt.xlabel('Seno del ángulo de incidencia del Aire al Agua')
+    plt.ylabel('Seno del ángulo de refracción en el Agua')
+    plt.title('Seno de los ángulos, aplicado el cambio de variable.')
+
+    plt.legend(loc=0)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()
+
+    # Caso B
+    # Normal
+    data = pd.read_csv("P1/refraccionB.csv")
+    data.dropna(inplace=True)
+
+    aire = pd.DataFrame(data.aire)
+    aire.columns = ["Aire"]
+
+    mA = pd.DataFrame(data.mysteryA)
+    mA.columns = ['MysteryA']
+
+    plt.scatter(aire,
+                mA,
+                color='r',
+                label='Dispersión de incidencia y refracción.')
+
+    plt.xlabel('Ángulo de incidencia del Aire a la Sustancia Misteriosa A [°]')
+    plt.ylabel('Ángulo de refracción en la Sustancia Misteriosa A [°]')
+    plt.title('Lecturas de ángulos entre Aire y Sustancia Misteriosa A.')
+
+    plt.legend(loc=0)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()
+
+    # Cambio de Variable
+
+    X = []
+    Y = []
+    for num in aire["Aire"]:
+        X.append(math.sin(math.radians(float(num))))
+        print(X)
+
+    for num in mA["MysteryA"]:
+        Y.append(math.sin(math.radians(float(num))))
+        print(Y)
+
+    plt.scatter(X,
+                Y,
+                color='r',
+                label='Dispersión de incidencia y refracción.')
+
+    plt.xlabel(
+        'Seno del ángulo de incidencia del Aire a la Sustancia Misteriosa A')
+    plt.ylabel('Seno del ángulo de refracción en la Sustancia Misteriosa A')
+    plt.title('Seno de los ángulos, aplicado el cambio de variable.')
+
+    plt.legend(loc=0)
+    plt.tight_layout()
+    plt.grid()
+    plt.show()
+
+    return
