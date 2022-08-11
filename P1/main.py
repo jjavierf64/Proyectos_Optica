@@ -215,7 +215,7 @@ def run():
                 color='r',
                 label='Dispersión de incidencia y refracción.')
 
-    plt.xlabel(´
+    plt.xlabel(
         'Seno del ángulo de incidencia del Vidrio a la Sustancia Misteriosa B')
     plt.ylabel('Seno del ángulo de refracción en la Sustancia Misteriosa B')
     plt.title('Seno de los ángulos, aplicado el cambio de variable.')
