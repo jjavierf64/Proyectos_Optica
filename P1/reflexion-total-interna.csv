@@ -1,8 +1,8 @@
-Sistema1
-medio1,indice1,medio2,indice2,angulo
-agua,1.33,aire,1,58
-aire,1,agua,1.33,90
-Sistema2
-medio1,indice1,medio2,indice2,angulo
-vidrio,1.5,agua,1.33,64
-agua,1.33,vidrio,1.5,90
+Sistema1 
+medio1   ,indice1 ,medio2 ,indice2 ,angulo
+agua     ,1.33    ,aire   ,1       ,49
+aire     ,1       ,agua   ,1.33    ,90
+Sistema2 
+medio1   ,indice1 ,medio2 ,indice2 ,angulo
+vidrio   ,1.5     ,agua   ,1.33    ,63
+agua     ,1.33    ,vidrio ,1.5     ,90
