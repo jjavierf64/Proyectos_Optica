@@ -1,9 +1,7 @@
-i = 0.001
-	do for [n=0:10000]{
+i = 0.00005
+set xrange[0:10]
+set samples 1000
+	do for [n=0:20000]{
 	t = n*i
-	plot x-2**t
-}
-
-
-
-
+	plot sin(x-t*pi/2) * sin(10*x)
+	}
