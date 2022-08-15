@@ -1,0 +1,6 @@
+20 de luz a lente y 1.80 del techo
+
+
+1/s_imagen -1/s_objeto = 1/distanciafocal
+
+f=(1/180 - 1/20)^-1
