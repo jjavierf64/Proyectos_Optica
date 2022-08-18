@@ -1,6 +1,6 @@
 import sys
 
-sys.path.insert(0, './P1')
+sys.path.insert(0, './P2')
 
 import main
 
