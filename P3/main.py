@@ -30,7 +30,7 @@ def run():
     si3.columns = ["DistanciaImagenF3"]
     plt.style.use('ggplot')
     plt.scatter(s0,
-                si,
+                si3,
                 color='orange',
                 label='Distancia focal 4cm.')
     
